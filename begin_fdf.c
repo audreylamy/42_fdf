@@ -6,7 +6,7 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 13:43:03 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 14:31:25 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 16:30:35 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,24 +85,3 @@ void ft_transform_map(t_env *tmp)
 	ft_draw_line_horiz(tmp);
 	ft_draw_line_vertical(tmp);
 }
-
-// void fill_pixel(t_env *tmp, t_map *map)
-// {
-//  	int i;
-//  	int j;
-
-//  	i = 0;
-//  	while(i < WINDOW_H)
-//  	{
-//  		j = 0;
-//  		while(j < WINDOW_L)
-//  		{
-//  			if (j % 2)
-//  				((int*)tmp->img->data)[(i * WINDOW_L) + j] = 0x00FFFF;
-//  			else
-//  				((int*)tmp->img->data)[(i * WINDOW_L) + j] = 0;
-//  			j++;
-//  		}
-//  		i++;
-//  	}
-//  }
