@@ -6,23 +6,41 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 09:31:57 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 11:51:30 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 18:33:33 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+int ft_nb_col(char **argv)
+{
+	int 	nb_line;
+	int		fd;
+	char	*line;
+	char 	**str;
+
+	fd = open(argv[1], O_RDONLY);
+	nb_line = 0;
+	while (gnl(fd, &line) > 0)
+	{
+		str = ft_strsplit(line, ' ');
+		while (str[nb_line] != '\0')
+			nb_line++;
+		break;
+
+	}
+	return(nb_line);
+}
+
 int ft_nb_line(char **argv)
 {
-	int		index;
 	int 	nb_line;
 	int		fd;
 	char	*line;
 
 	fd = open(argv[1], O_RDONLY);
 	nb_line = 0;
-	index = 0;
-	while (get_next_line(fd, &line) > 0)
+	while (gnl(fd, &line) > 0)
 	{
 		nb_line++;
 	}

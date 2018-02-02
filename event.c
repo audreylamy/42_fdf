@@ -6,7 +6,7 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 10:39:04 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 16:01:18 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 17:01:52 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,17 +203,17 @@ void ft_transformation_event(t_env *tmp, int keycode)
 			y0 = tmp->map->lines[i]->points[j]->y;
 			z0 = tmp->map->lines[i]->points[j]->z;
 			w0 = tmp->map->lines[i]->points[j]->w;
-			if (keycode == 84)
+			if (keycode == ROTATION_X_DOWN)
 				resultat = ft_rotationx1(x0, y0, z0, w0, i);
-			else if (keycode == 91)
+			else if (keycode == ROTATION_X_UP)
 				resultat = ft_rotationx2(x0, y0, z0, w0, i);
-			else if (keycode == 88)
+			else if (keycode == ROTATION_Z_RIGHT)
 				resultat = ft_rotationz1(x0, y0, z0, w0, i);
-			else if (keycode == 86)
+			else if (keycode == ROTATION_Z_LEFT)
 				resultat = ft_rotationz2(x0, y0, z0, w0, i);
-			else if (keycode == 0)
+			else if (keycode == ROTATION_Y_A)
 				resultat = ft_rotationy1(x0, y0, z0, w0, i);
-			else if (keycode == 13)
+			else if (keycode == ROTATION_Y_W)
 				resultat = ft_rotationy2(x0, y0, z0, w0, i);
 			tmp->map->lines[i]->points[j]->x = resultat.x1;
 			tmp->map->lines[i]->points[j]->y = resultat.y1;

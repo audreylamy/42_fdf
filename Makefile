@@ -6,7 +6,7 @@
 #    By: alamy <alamy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/11 18:07:22 by lesanche          #+#    #+#              #
-#    Updated: 2018/01/31 16:53:59 by alamy            ###   ########.fr        #
+#    Updated: 2018/02/02 18:32:21 by alamy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC = \
 				cal_matrix.c \
 				ft_print_matrix.c \
 				bresenham.c \
-				event.c
+				event.c \
+				gnl.c
 
 OBJ = $(SRC:.c=.o)
 

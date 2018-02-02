@@ -6,7 +6,7 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:58:12 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 12:51:26 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 17:36:11 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void ft_draw_line_vertical(t_env *tmp)
 			y = tmp->map->lines[i]->points[j]->y;
 			x1 = tmp->map->lines[i + 1]->points[j]->x;
 			y1 = tmp->map->lines[i + 1]->points[j]->y;
-			ft_putnbr(x);
-			ft_putchar(' ');
-			ft_putnbr(y);
-			ft_putchar(' ');
-			ft_putnbr(x1);
-			ft_putchar(' ');
-			ft_putnbr(y1);
-			ft_putchar('\n');
+			// ft_putnbr(x);
+			// ft_putchar(' ');
+			// ft_putnbr(y);
+			// ft_putchar(' ');
+			// ft_putnbr(x1);
+			// ft_putchar(' ');
+			// ft_putnbr(y1);
+			// ft_putchar('\n');
 			ft_bresenham(x, y, x1, y1, tmp);
 			i++;
 		}

@@ -6,7 +6,7 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 13:43:03 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 16:30:35 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 18:18:43 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void fill_pixel(t_env *tmp, int x, int y, int color)
  {	
- 	((int*)tmp->img.data)[(y * WINDOW_L) + x] = color;
+	if (x >= 0 && y >= 0 && x < WINDOW_L && y < WINDOW_H)
+ 		((int*)tmp->img.data)[(y * WINDOW_L) + x] = color;
  }
 
  void ft_create_image(t_env *tmp)
@@ -26,7 +27,7 @@ void fill_pixel(t_env *tmp, int x, int y, int color)
  	mlx_put_image_to_window(tmp->mlx, tmp->win, tmp->img.img_ptr, 0, 0);
  }
 
-t_vecteur4 ft_transformation(int x, int y, int z, int w, int i)
+t_vecteur4 ft_transformation(int x, int y, int z, int w, int i, t_env *tmp)
 {
 	t_vecteur4 	vecteur_trans;
 	matrix4_t 	m_translation;
@@ -35,8 +36,8 @@ t_vecteur4 ft_transformation(int x, int y, int z, int w, int i)
 	// matrix4_t	m_projection;
 	t_vecteur4 	resultat;
 
-	vecteur_trans = create_vecteur4((WINDOW_L / 2) - ((18 * TILE_WIDTH) / 2), 
-	(WINDOW_H / 2) - ((10 * TILE_HEIGHT) / 2), 0, 1);
+	vecteur_trans = create_vecteur4((WINDOW_L / 2) - ((tmp->nb_col * TILE_WIDTH) / 2), 
+	(WINDOW_H / 2) - ((tmp->nb_line * TILE_HEIGHT) / 2), 0, 1);
 	m_translation = matrix_translation_center(vecteur_trans);
 	m_rotationX = matrix_rotationX(55.0 * PI / 180);
 	m_rotationZ = matrix_rotationZ(4.0 * PI / 180);
@@ -71,9 +72,7 @@ void ft_transform_map(t_env *tmp)
 			y0 = tmp->map->lines[i]->points[j]->y;
 			z0 = tmp->map->lines[i]->points[j]->z;
 			w0 = tmp->map->lines[i]->points[j]->w;
-			ft_putnbr(tmp->nb_line);
-			ft_putchar(' ');
-			resultat = ft_transformation(x0, y0, z0, w0, i);
+			resultat = ft_transformation(x0, y0, z0, w0, i, tmp);
 			tmp->map->lines[i]->points[j]->x = resultat.x1;
 			tmp->map->lines[i]->points[j]->y = resultat.y1;
 			tmp->map->lines[i]->points[j]->z = resultat.z1;

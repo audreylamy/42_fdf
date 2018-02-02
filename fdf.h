@@ -6,7 +6,7 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 11:49:43 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 16:22:41 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 18:31:57 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ typedef struct	s_map
 	// int nb_line;
 }				t_map;
 
-// typedef struct	s_algob
-// {
-// 	float		nb_pix_x;
-// 	float		nb_pix_y;
-// 	int		incX;
-// 	int		incY; //incrementation
-// }				t_algob;
+//GNL
+typedef struct	s_val
+{
+	int			i;
+	int			ret;
+	char		*tmp;
+}				t_val;
 
 typedef struct	s_algob
 {
@@ -110,13 +110,18 @@ typedef struct	s_env
 	int new_move_y;
 	int new_move_x;
 	int nb_line;
+	int nb_col;
 }				t_env;
+
+// GNL
+int				gnl(const int fd, char **line);
 
 /*PARSING*/
 int main(int argc, char **argv);
 int ft_nb_line(char **argv);
 int	ft_getnbr(char *str);
 int ft_lenght(char **str);
+int ft_nb_col(char **argv);
 void ft_print_tab(t_env *tmp);
 t_map *ft_begin_parse(char **argv);
 t_points **ft_stock_points(char *line, int index, t_points ***points, t_lines *elts);
@@ -186,7 +191,7 @@ matrix4_t  matrix_rotationY(float alpha);
 matrix4_t  matrix_rotationZ(float alpha);
 matrix4_t  matrix_projection(float angle, float ratio, float near, float far); 
 t_vecteur4 create_vecteur4(int x, int y, int z, int w);
-t_vecteur4 ft_transformation(int x, int y, int z, int w, int i);
+t_vecteur4 ft_transformation(int x, int y, int z, int w, int i, t_env *tmp);
 t_vecteur4 ft_cal_translation(t_vecteur4 vecteur2, matrix4_t matrix_translation);
 t_vecteur4 ft_cal_rotationX(t_vecteur4 vecteur, matrix4_t matrix_rotationX);
 t_vecteur4 ft_cal_rotationY(t_vecteur4 vecteur, matrix4_t matrix_rotationY);

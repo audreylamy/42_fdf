@@ -6,7 +6,7 @@
 /*   By: alamy <alamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 10:19:16 by alamy             #+#    #+#             */
-/*   Updated: 2018/02/02 13:58:25 by alamy            ###   ########.fr       */
+/*   Updated: 2018/02/02 18:33:43 by alamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_map *ft_begin_parse(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		ft_putstr("open() failed\n");
-	while (get_next_line(fd, &line) > 0)
+	while (gnl(fd, &line) > 0)
 	{	
 		if ((elts = (t_lines*)malloc(sizeof(t_lines))) == NULL)
 			exit(0);
