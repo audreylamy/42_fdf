@@ -4,12 +4,12 @@
 ## Usage  
 First, git clone in your terminal using command :  
 
-➙ git clone https://github.com/audreylamy/42_fdf [name]  
+➙ **git clone** https://github.com/audreylamy/42_fdf **[name]**  
 
 Run makefile to compile using command:  
 
-➙ make  
+➙ **make**
 
 Run executable using command:  
 
-➙ ./fdf [map]  
+➙ **./fdf [map]**
